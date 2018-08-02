@@ -18,7 +18,6 @@ class HeightActivity : AppCompatActivity() {
         spinner.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                         val spinner = parent as? Spinner
                         val item = spinner?.selectedItem as? String
                         item?.let {
@@ -27,7 +26,6 @@ class HeightActivity : AppCompatActivity() {
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates
                     }
 
                 }
@@ -40,19 +38,22 @@ class HeightActivity : AppCompatActivity() {
         seekBar.setOnSeekBarChangeListener(
                 object : SeekBar.OnSeekBarChangeListener {
                     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                         height.text = progress.toString()
                     }
 
                     override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates{
                     }
 
                     override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
                 })
+
+        radioGroup.setOnCheckedChangeListener{
+            group, checkedId ->
+                height.text = findViewById<RadioButton>(checkedId).text
+        }
+
         }
 
         override fun onPause() {
